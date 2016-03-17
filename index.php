@@ -48,7 +48,7 @@
 <script src="js/main.js?nocache=<?php echo md5(microtime()) ?>"></script>
 <!-- <script src="js/socket.io.min.js"></script> -->
 
-<!--<div class="small dimmed top center-hor"><div id="menu">
+<div class="small dimmed top center-hor"><div id="menu">
 	<div class="menu" id="menu1" onclick="afficheMenu(this)">
 		<span href="#"class= "fa fa-bars"></span>
 	</div>
@@ -87,7 +87,7 @@
 			<a href="#">Compliment</a>
 		</div>
 	</div>
-</div></div>-->
+</div></div>
 
 <?php  include(dirname(__FILE__).'/controllers/modules.php');?>
 </body>
