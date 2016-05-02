@@ -51,14 +51,10 @@ jQuery(document).ready(function($) {
 
 	calendar.init();
 
+	compliments.init();
+
 	weather.init();
 
 	news.init();
-
-	compliments.init();
-
-	//weather.init();
-
-	//news.init();
 
 });

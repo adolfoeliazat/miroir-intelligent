@@ -9,8 +9,9 @@ var config = {
         //change weather params here:
         //units: metric or imperial
         params: {
-	    city: 'Lille',
-            q: 'Lille,France',
+	        city: 'Lille', /*variable d'affichage*/
+            country: 'France',
+            q: this.city + ', ' + this.country, /*parametre de meteo*/
             units: 'metric',
             // if you want a different lang for the weather that what is set above, change it here
             lang: 'fr',
@@ -23,7 +24,7 @@ var config = {
         morning: [
             'Bonjour',
             'Passe une bonne journée!',
-            'as-tu bien dormi?'
+            //'As-tu bien dormi?'
         ],
         afternoon: [
             'Tu as l\'air radieux!',
@@ -31,7 +32,8 @@ var config = {
         ],
         evening: [
             'Wow!',
-            'T\'as l\'air en forme!'
+            //'Tu as l\'air en forme!',
+            'Bonsoir'
         ]
     },
     calendar: {
@@ -66,6 +68,6 @@ var config = {
 		]
     },
     news: {
-        feed: 'http://www.lemonde.fr/rss/une.xml'
+        feed: 'http://lemonde.fr/rss/une.xml'
     }
 }

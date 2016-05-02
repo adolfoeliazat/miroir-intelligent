@@ -14,25 +14,7 @@ var calendar = {
 	displaySymbol: (typeof config.calendar.displaySymbol == 'undefined') ? false : config.calendar.displaySymbol,
 	shortRunningText: 'still',
 	longRunningText: 'until',
-	actif: 1,
 }
-
-
-function afficheCalendar(obj){
-	var obj   = document.getElementById(obj.id);
-
-	if(obj.style.display == "none"){
-		obj.style.display = "block";
-		calendar.actif = 1;
-	}
-	else{
-		obj.style.display = "none";
-		calendar.actif = 0;
-	}
-
-
-}
-
 
 calendar.processEvents = function (url, events) {
 	tmpEventList = [];
@@ -194,7 +176,7 @@ calendar.updateCalendar = function (eventList) {
 
 		opacity -= 1 / eventList.length;
 	}
-	if (_is_new && this.actif == 1) {
+	if (_is_new) {
 		$(this.calendarLocation).updateWithText(table, this.fadeInterval);
 	}
 
@@ -204,8 +186,8 @@ calendar.init = function () {
 
 	this.updateData(this.updateCalendar.bind(this));
 
-	//this.intervalId = setInterval(function () {
-	//	 this.updateCalendar(this.eventList)
+	// this.intervalId = setInterval(function () {
+		// this.updateCalendar(this.eventList)
 	// }.bind(this), this.updateInterval);
 
 	this.dataIntervalId = setInterval(function () {

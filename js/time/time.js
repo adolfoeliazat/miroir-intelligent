@@ -1,26 +1,24 @@
 var time = {
 	timeFormat: config.time.timeFormat || 24,
 	dateLocation: '.date',
-	timeLocation: '.time',
+	timeLocation: '#time',
 	updateInterval: 1000,
 	intervalId: undefined,
 	displaySeconds: (typeof config.time.displaySeconds == 'undefined') ? true : config.time.displaySeconds,
 	digitFade: (typeof config.time.digitFade == 'undefined') ? false : config.time.digitFade,
-	dateactif:1,
 };
 
 
-function afficheTime(obj1){
-	var obj1   = document.getElementById(obj1.id);
+function afficheTime(obj){
+	var obj   = document.getElementById(obj.id);
 
-	if(obj1.style.display == "none"){
-		obj1.style.display = "block";
-		time.dateactif = 1;
+	if(obj.style.display == "none"){
+		obj.style.display = "block";
 	}
 	else{
-		obj1.style.display = "none";
-		time.dateactif = 0;
+		obj.style.display = "none";
 	}
+
 }
 
 
@@ -30,9 +28,8 @@ time.updateTime = function () {
 	var timeLocation = this.timeLocation;
 	var _now = moment();
 	var _date = _now.format('[<span class="dayname">]dddd,[</span> <span class="longdate">]LL[</span>]');
-	if(this.dateactif == 1){
+	
 	$(this.dateLocation).updateWithText(_date, 1000);
-	}
 	$('.fade').removeClass('fade')
 	var html = ''
 	if (this.displaySeconds) {
@@ -72,7 +69,6 @@ time.updateTime = function () {
 				$(this).addClass('fade');
 			}
 		});
-
 		if ($('.fade').length == 0) {
 			// Initial Update
 			$(this.timeLocation).html(diff.html());
@@ -93,6 +89,7 @@ time.updateTime = function () {
 			$(this.timeLocation).html(_now.format(this._timeFormat+':mm'));
 		}
 	}
+
 }
 
 time.init = function () {

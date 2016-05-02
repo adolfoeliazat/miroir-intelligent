@@ -9,6 +9,7 @@
 
 .menu{
 	text-align:center;
+	margin-bottom: 20px;
 	height:18px;
 	width:150px;
 	padding:2px 0;
@@ -17,7 +18,9 @@
 }
 .sousmenu{
 	text-align:left;
-	height:18px;
+	margin-left: 40px;
+	margin-top:5px;
+	height:20px;
 	width:150px;
 	padding:1px 0;
 	background:#000;
@@ -26,16 +29,18 @@
 
 .ssmenu{
 	text-align:left;
-	margin-left: 10px;
+	margin-top:5px;
+	margin-left:75px;
 	height:18px;
-	width:150px;
+	width:15px;
 	padding:1px 0;
 	background:#000;
 	color:#fff;
+	font-size:12px;
 }
 
 .menu a{
-	display:block;
+	/*display:block;*/
 	width:100%;
 	height:100%;
 	color:#fff;
@@ -57,16 +62,59 @@
 	background:#000;
 }
 .ssmenu a{
-	display:block;
+	/*display:block;*/
+	/*margin:20px;*/
 	width:100%;
 	height:100%;
+	/*width:15px;
+	height:18px;*/
 	color:#fff;
 	font-family:arial,sans-serif;
-	font-size:15px;
+	font-size:12px;
 	font-weight:bold;
 	text-decoration:none;
 	background:#000;
 }
+.bouton{
+	margin-left:76px;
+	font-size:12px;
+}
+
+.ligne
+{
+	display: inline-block;
+	white-space: nowrap;
+}
+
+.espace{
+	margin-left: 8px;
+}
+.espaceT1{
+margin-left: 70px;
+}
+.espaceT2{
+margin-left: 39px;
+}
+.espaceW1{
+margin-left: 78px;
+}
+.espaceW2{
+margin-left: 29px;
+}
+.espaceW3{
+margin-left: 48px;
+}
+.espaceC{
+margin-left: 32px;
+}
+.espaceN{
+margin-left: 72px;
+}
+
+
+
+
+
 .menu a:hover, .sousmenu a:hover, .menu a:active, .sousmenu a:active, .menu a:focus, .sousmenu a:focus{
 	background:#000;
 }

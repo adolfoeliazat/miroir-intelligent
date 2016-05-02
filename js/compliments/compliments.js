@@ -9,7 +9,7 @@ var compliments = {
 	updateInterval: config.compliments.interval || 30000,
 	fadeInterval: config.compliments.fadeInterval || 4000,
 	intervalId: null,
-	actif:1,
+	complimentActive: 1,
 };
 
 
@@ -18,20 +18,20 @@ function afficheCompliment(obj){
 
 	if(obj.style.display == "none"){
 		obj.style.display = "block";
-		compliments.actif = 1;
+		compliments.complimentActive = 1;
 	}
 	else{
 		obj.style.display = "none";
-		compliments.actif = 0;
+		compliments.complimentActive = 0;
 	}
-
-
 }
 
 /**
  * Changes the compliment visible on the screen
  */
 compliments.updateCompliment = function () {
+
+
 
 	var _list = [];
 
@@ -69,17 +69,18 @@ compliments.updateCompliment = function () {
 	// Randomly select a location
 	var _randomIndex = Math.floor(Math.random() * _list.length);
 	compliments.currentCompliment = _list[_randomIndex];
-	if(this.actif == 1){
+
+if(this.complimentActive == 1){
 	$('.compliment').updateWithText(compliments.currentCompliment, compliments.fadeInterval);
-	}
+}
 }
 
 compliments.init = function () {
 
 	this.updateCompliment();
-
+//if(compliment.complimentActive == 1){
 	this.intervalId = setInterval(function () {
 		this.updateCompliment();
 	}.bind(this), this.updateInterval)
-
+//}
 }

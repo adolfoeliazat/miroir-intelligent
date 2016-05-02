@@ -33,44 +33,19 @@ var weather = {
 	fadeInterval: config.weather.fadeInterval || 1000,
 	intervalId: null,
 	orientation: config.weather.orientation || 'vertical',
-	windSunactif: 1,
-	tempactif: 1,
-	prevactif: 1,
+	weatherActive: 1,
 }
-function afficheWeatherT(obj){
-	
-	var obj   = document.getElementById(obj.id);
-	if(obj.style.display == "none"){
-		obj.style.display = "block";
-		weather.tempactif = 1;
+
+function afficheWeather(obj1){
+	var obj1   = document.getElementById(obj1.id);
+
+	if(obj1.style.display == "none"){
+		obj1.style.display = "block";
+		weather.weatherActive = 1;
 	}
 	else{
-		obj.style.display = "none";
-		weather.tempactif = 0;
-	}
-}
-function afficheWeatherP(obj){
-	
-	var obj   = document.getElementById(obj.id);
-	if(obj.style.display == "none"){
-		obj.style.display = "block";
-		weather.prevactif = 1;
-	}
-	else{
-		obj.style.display = "none";
-		weather.prevactif = 0;
-	}
-}
-function afficheWeatherW(obj){
-	
-	var obj   = document.getElementById(obj.id);
-	if(obj.style.display == "none"){
-		obj.style.display = "block";
-		weather.windSunactif = 1;
-	}
-	else{
-		obj.style.display = "none";
-		weather.windSunactif = 0;
+		obj1.style.display = "none";
+		weather.weatherActive = 0;
 	}
 }
 
@@ -122,9 +97,9 @@ weather.updateCurrentWeather = function () {
 			var _icon = '<span class="icon ' + _iconClass + ' dimmed wi"></span>';
 
 			var _newTempHtml = _icon + '' + _temperature + '&deg;' + '<span class="wi light">' + weather.params.city + '</span>';
-			if(this.tempactif == 1){
-				$(this.temperatureLocation).updateWithText(_newTempHtml, this.fadeInterval);
-			}
+
+			$(this.temperatureLocation).updateWithText(_newTempHtml, this.fadeInterval);
+
 			var _now = moment().format('HH:mm'),
 				_sunrise = moment(data.sys.sunrise*1000).format('HH:mm'),
 				_sunset = moment(data.sys.sunset*1000).format('HH:mm');
@@ -135,9 +110,9 @@ weather.updateCurrentWeather = function () {
 			if (_sunrise < _now && _sunset > _now) {
 				_newSunHtml = '<span class="sun"><span class="wi wi-sunset xdimmed"></span> ' + _sunset + '</span>';
 			}
-			if(this.windSunactif == 1){
-				$(this.windSunLocation).updateWithText(_newWindHtml + ' ' + _newSunHtml,this.fadeInterval);
-			}
+
+			$(this.windSunLocation).updateWithText(_newWindHtml + ' ' + _newSunHtml,this.fadeInterval);
+
 		}.bind(this),
 		error: function () {
 
@@ -196,9 +171,11 @@ weather.updateWeatherForecast = function () {
 			} else {
 				_forecastHtml += _forecastHtml2 + _forecastHtml3 + _forecastHtml4 +'</table>';
 			}
-			if(this.prevactif == 1){
+
+			if(this.weatherActive == 1){
 				$(this.forecastLocation).updateWithText(_forecastHtml, this.fadeInterval);
 			}
+
 		}.bind(this),
 		error: function () {
 
@@ -216,11 +193,12 @@ weather.init = function () {
 	if (this.params.cnt === undefined) {
 		this.params.cnt = 6;
 	}
-
+//if(weather.weatherActive == 1){
 	this.intervalId = setInterval(function () {
 		this.updateCurrentWeather();
 		this.updateWeatherForecast();
 	}.bind(this), this.updateInterval);
 	this.updateCurrentWeather();
 	this.updateWeatherForecast();
+//}
 }

@@ -15,19 +15,19 @@ var news = {
 	fadeInterval: 2000,
 	intervalId: null,
 	fetchNewsIntervalId: null,
-	actif: 1,
-};
+	newsActive: 1,
+}
 
 function afficheNews(obj){
 	var obj   = document.getElementById(obj.id);
 
 	if(obj.style.display == "none"){
 		obj.style.display = "block";
-		news.actif= 1;
+		news.newsActive = 1;
 	}
 	else{
 		obj.style.display = "none";
-		news.actif= 0;
+		news.newsActive = 0;
 	}
 
 
@@ -48,7 +48,7 @@ news.buildQueryString = function (feed) {
 
 /**
  * Fetches the news for each feed provided in the config file
- */
+*/
 news.fetchNews = function () {
 
 	// Reset the news feed
@@ -68,6 +68,7 @@ news.fetchNews = function () {
  * @param  {string} yqUrl The URL being used to grab the RSS feed (in JSON format)
  */
 news.fetchFeed = function (yqUrl) {
+
 	$.ajax({
 		type: 'GET',
 		datatype:'jsonp',
@@ -116,6 +117,7 @@ news.parseFeed = function (data) {
  * @return {boolean} Confirms that there is a list of news items to loop through and that one has been shown on the screen
  */
 news.showNews = function () {
+
 	// If all items have been seen, swap seen to unseen
 	if (this.newsItems.length === 0 && this.seenNewsItem.length !== 0) {
 
@@ -139,9 +141,11 @@ news.showNews = function () {
 	var _item = news.newsItems.splice(_location, 1)[0];
 
 	this.seenNewsItem.push(_item);
-	if(this.actif == 1){
-	$(this.newsLocation).updateWithText(_item, this.fadeInterval);
+
+	if(this.newsActive == 1){
+		$(this.newsLocation).updateWithText(_item, this.fadeInterval);
 	}
+
 	return true;
 
 }
@@ -157,6 +161,8 @@ news.init = function () {
 	this.fetchNews();
 	this.showNews();
 
+
+//if(newsActive === 1){
 	this.fetchNewsIntervalId = setInterval(function () {
 		this.fetchNews()
 	}.bind(this), this.fetchInterval)
@@ -164,5 +170,5 @@ news.init = function () {
 	this.intervalId = setInterval(function () {
 		this.showNews();
 	}.bind(this), this.updateInterval);
-	
+//}
 }
