@@ -36,8 +36,8 @@
 <body>
 
 <div class="left light medium">
-	<strong>
-	<form id="form_param" action="index.php">
+
+	<form id="form_param" action="index.php" >
 
 		<span>Global :</span> <br/><br/>
 		<label class="small">Langue  <input id="text" type="text" placeholder="..." /></label>
@@ -49,13 +49,13 @@
 		<input type="submit" value="Valider" onclick="maj();">
 
 	</form>
+	<!--a href="index.php">coucou</a-->
 	
-</strong>
 	<script>
 		var form = document.getElementById('form_param');
 
 		form.addEventListener('submit',function(e) {
-		alert("Valider ces paramètres ?");
+		//alert("Valider ces paramètres ?");
 
 		e.preventDefault();
 		});

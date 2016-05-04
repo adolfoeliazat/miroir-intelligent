@@ -1,5 +1,31 @@
+/*var Fichier = function Fichier(fichier)
+{
+    if(window.XMLHttpRequest) obj = new XMLHttpRequest(); //Pour Firefox, Opera,...
+
+    else if(window.ActiveXObject) obj = new ActiveXObject("Microsoft.XMLHTTP"); //Pour Internet Explorer 
+
+    else return(false);
+    
+
+    if (obj.overrideMimeType) obj.overrideMimeType("text/xml"); //Évite un bug de Safari
+
+   
+    obj.open("GET", fichier, false);
+    obj.send(null);
+   
+    if(obj.readyState == 4) return(obj.responseText);
+    else return(false);
+}
+*/
+/*
+var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
+var monfichier=fileSystem.OpenTextFile("langue.txt", 1 ,true);
+alert(monfichier.ReadAll); // imprime: "tutorie"
+*/
+
 var config = {
     lang: 'fr',
+    //Fichier('langue.txt'),
     time: {
         timeFormat: 24,
         displaySeconds: true,
@@ -11,7 +37,7 @@ var config = {
         params: {
 	        city: 'Lille', /*variable d'affichage*/
             country: 'France',
-            q: this.city + ', ' + this.country, /*parametre de meteo*/
+            q: 'Lille, France', /*parametre de meteo*/
             units: 'metric',
             // if you want a different lang for the weather that what is set above, change it here
             lang: 'fr',

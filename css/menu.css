@@ -80,38 +80,6 @@
 	font-size:12px;
 }
 
-.ligne
-{
-	display: inline-block;
-	white-space: nowrap;
-}
-
-.espace{
-	margin-left: 8px;
-}
-.espaceT1{
-margin-left: 70px;
-}
-.espaceT2{
-margin-left: 39px;
-}
-.espaceW1{
-margin-left: 78px;
-}
-.espaceW2{
-margin-left: 29px;
-}
-.espaceW3{
-margin-left: 48px;
-}
-.espaceC{
-margin-left: 32px;
-}
-.espaceN{
-margin-left: 72px;
-}
-
-
 
 
 
