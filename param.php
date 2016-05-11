@@ -41,21 +41,21 @@
 <form method="post" action="transition.php"> <!--id="form_param" -->
 
 		<strong class="medium">Global :</strong> <br />
-		<label class="xxsmall ">Langue  <input type="text" id="langue" name="langue" class="keyboard ui-corner-all"  placeholder="Ex: fr, en, de, ..." /></label> <br />
-		<label class="xxsmall">Format de l'heure  <input type="text" class="keyboard ui-corner-all" placeholder="Ex: 12 ou 24" /></label> <br />
+		<label class="xxsmall ">Langue  <input type="text" name="langue" class="keyboard ui-corner-all"  value="<?php $f=fopen('langue.txt','r'); echo fgets($f); fclose($f); ?>" /></label> <br />
+		<label class="xxsmall">Format de l'heure  <input type="text" name="format"class="keyboard ui-corner-all"  value="<?php $f=fopen('format.txt','r'); echo fgets($f); fclose($f); ?>" /></label> <br />
 		<br />
 		<br />
 	
 		<strong class="medium">Météo :</strong> <br />
-		<label class="xxsmall">Ville  <input  type="text" class="keyboard ui-corner-all"  placeholder="Entrez votre ville pour la météo" /></label> <br />
-		<label class="xxsmall">Pays <input type="text" class="keyboard ui-corner-all" placeholder="Entrez votre pays pour la météo" /></label> <br />
-		<label class="xxsmall">Clé APPID  <input type="text" class="keyboard ui-corner-all" placeholder="Entrez votre propre clé APPID" /></label> <br />
+		<label class="xxsmall">Ville  <input  type="text" name="ville" class="keyboard ui-corner-all"   value="<?php $f=fopen('ville.txt','r'); echo fgets($f); fclose($f); ?>" /></label> <br />
+		<label class="xxsmall">Pays <input type="text" name="pays" class="keyboard ui-corner-all"  value="<?php $f=fopen('pays.txt','r'); echo fgets($f); fclose($f); ?>" /></label> <br />
+		<!--label class="xxsmall">Clé APPID  <input type="text" name="cle" class="keyboard ui-corner-all" placeholder="Entrez votre propre clé APPID" /></label> <br /-->
 		<br />
 		<br />
 
 		<strong class="medium">Calendrier :</strong> <br />
-		<label class="xxsmall">Nombre d'entrées  <input type="text" class="keyboard ui-corner-all" placeholder="Entrez le nombre de jour à afficher" /></label> <br />
-		<label class="xxsmall">Charger un calendrier  <input type="text" class="keyboard ui-corner-all"  placeholder="Entrez l'url d'un calendrier .ics" /></label> <br />
+		<label class="xxsmall">Nombre d'entrées  <input type="text" name="nbr" class="keyboard ui-corner-all"  value="<?php $f=fopen('nbr.txt','r'); echo fgets($f); fclose($f); ?>" /></label> <br />
+		<label class="xxsmall">Charger un calendrier  <input type="text" name="cal" class="keyboard ui-corner-all"  placeholder="Entrez l'url d'un calendrier .ics" /></label> <br />
 		<br />
 		<br />
 
@@ -91,6 +91,27 @@
 	        offset: '0 20'
 	    }
 		});
+
+		/*Fonction de chargement d'un fichier texte dans une variable*/
+		var Fichier = function Fichier(fichier)
+		{
+		    if(window.XMLHttpRequest) obj = new XMLHttpRequest(); //Pour Firefox, Opera,...
+
+		    else if(window.ActiveXObject) obj = new ActiveXObject("Microsoft.XMLHTTP"); //Pour Internet Explorer 
+
+		    else return(false);
+		    
+
+		    if (obj.overrideMimeType) obj.overrideMimeType("text/xml"); //Évite un bug de Safari
+
+		   
+		    obj.open("GET", fichier, false);
+		    obj.send(null);
+		   
+		    if(obj.readyState == 4) return(obj.responseText);
+		    else return(false);
+		}
+
 
 
 	</script>

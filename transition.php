@@ -8,17 +8,93 @@
 
 $dirname = "./";
 
+/* LANGUE*/
 $langue = $_POST["langue"];
-//Ouverture du répertoire de destination
 $fichierouvert = fopen ($dirname.'langue.txt', "w+");
-//Copie du fichier
 if ( !fwrite($fichierouvert, $langue)) {
-  echo "Impossible d'écrire dans le fichier ($filename)";
+  echo "Impossible d'écrire dans le fichier (langue)";
   exit;
 }
-//Fermeture du fichier
 fclose ($fichierouvert);
 
+/* FORMAT*/
+$format = $_POST["format"];
+$fichierouvert = fopen ($dirname.'format.txt', "w+");
+if ( !fwrite($fichierouvert, $format)) {
+  echo "Impossible d'écrire dans le fichier (format)";
+  exit;
+}
+fclose ($fichierouvert);
+
+/* VILLE*/
+$ville = $_POST["ville"];
+$fichierouvert = fopen ($dirname.'ville.txt', "w+");
+if ( !fwrite($fichierouvert, $ville)) {
+  echo "Impossible d'écrire dans le fichier (ville)";
+  exit;
+}
+fclose ($fichierouvert);
+
+
+/*PAYS */
+$pays = $_POST["pays"];
+$fichierouvert = fopen ($dirname.'pays.txt', "w+");
+if ( !fwrite($fichierouvert, $pays)) {
+  echo "Impossible d'écrire dans le fichier (pays)";
+  exit;
+}
+fclose ($fichierouvert);
+
+/* NBR ENTREES*/
+$nbr = $_POST["nbr"];
+$fichierouvert = fopen ($dirname.'nbr.txt', "w+");
+if ( !fwrite($fichierouvert, $nbr)) {
+  echo "Impossible d'écrire dans le fichier (nbr)";
+  exit;
+}
+fclose ($fichierouvert);
+
+/* 
+$ = $_POST[""];
+$fichierouvert = fopen ($dirname.'.txt', "w+");
+if ( !fwrite($fichierouvert, $)) {
+  echo "Impossible d'écrire dans le fichier ()";
+  exit;
+}
+fclose ($fichierouvert);
+
+
+$ = $_POST[""];
+$fichierouvert = fopen ($dirname.'.txt', "w+");
+if ( !fwrite($fichierouvert, $)) {
+  echo "Impossible d'écrire dans le fichier ()";
+  exit;
+}
+fclose ($fichierouvert);
+
+
+$ = $_POST[""];
+$fichierouvert = fopen ($dirname.'.txt', "w+");
+if ( !fwrite($fichierouvert, $)) {
+  echo "Impossible d'écrire dans le fichier ()";
+  exit;
+}
+fclose ($fichierouvert);
+
+
+*/
+
+
+
+
+
+
+
+
+//sleep(0,5);
+
+
+/*REDIRECTION*/
 header('Location: index.php');
 exit()
 

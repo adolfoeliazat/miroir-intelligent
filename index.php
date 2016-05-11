@@ -238,7 +238,7 @@ window.onload=generate_button;
 					</div>
 				</div-->
 <!--recherche-->
-<!--				<div class="sousmenu" id="MenuGoogle" onclick="afficheMenu(this)">
+				<div class="sousmenu" id="MenuGoogle" onclick="afficheMenu(this)">
 					<div class="fa fa-search"><span class="ligne espace"><a href="#">Recherche</a></span></div>
 				</div>
 					<div id="sousMenuGoogle" style="display:none">
@@ -259,7 +259,18 @@ window.onload=generate_button;
 						</div>
 					</div>
 
--->
+
+<!--bouton refresh-->
+
+			<div class="sousmenu" id="Menurefresh" onclick="afficheMenu(this)">
+				<br />
+				<span class="ligne espace"><a href="./index.php"><div class="fa fa-refresh espaceC"></div></a></span>
+			</div>
+
+
+
+
+
 </div></div>
 
 

@@ -1,3 +1,4 @@
+/*Fonction de chargement d'un fichier texte dans une variable*/
 var Fichier = function Fichier(fichier)
 {
     if(window.XMLHttpRequest) obj = new XMLHttpRequest(); //Pour Firefox, Opera,...
@@ -17,37 +18,11 @@ var Fichier = function Fichier(fichier)
     else return(false);
 }
 
-/*
-function load() {
-var request;
-
-if (window.XMLHttpRequest) { // Firefox
-    request = new XMLHttpRequest();
-}
-else if (window.ActiveXObject) { // IE
-    request = new ActiveXObject("Microsoft.XMLHTTP");
-}
-else {
-    return; // Non supporte
-}   
-
-request.open('GET', 'ville.txt', false); // Synchro
-request.send(null);
-
-return request.responseText;
-}
-*/
-/*
-var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
-var monfichier=fileSystem.OpenTextFile("langue.txt", 1 ,true);
-alert(monfichier.ReadAll); // imprime: "tutorie"
-*/
-
 var config = {
-    lang: Fichier('langue.txt'),
+    lang: Fichier('langue.txt') || 'fr',
     //langue.txt,
     time: {
-        timeFormat: 24,
+        timeFormat: Fichier('format.txt') || '24',
         displaySeconds: true,
         digitFade: false,
     },
@@ -85,7 +60,7 @@ var config = {
         ]
     },
     calendar: {
-        maximumEntries: 10, // Total Maximum Entries
+        maximumEntries: Fichier('nbr.txt') || '10', // Total Maximum Entries
 		displaySymbol: true,
 		defaultSymbol: 'calendar', // Fontawsome Symbol see http://fontawesome.io/cheatsheet/
         urls: [
