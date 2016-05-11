@@ -1,4 +1,4 @@
-/*var Fichier = function Fichier(fichier)
+var Fichier = function Fichier(fichier)
 {
     if(window.XMLHttpRequest) obj = new XMLHttpRequest(); //Pour Firefox, Opera,...
 
@@ -16,6 +16,26 @@
     if(obj.readyState == 4) return(obj.responseText);
     else return(false);
 }
+
+/*
+function load() {
+var request;
+
+if (window.XMLHttpRequest) { // Firefox
+    request = new XMLHttpRequest();
+}
+else if (window.ActiveXObject) { // IE
+    request = new ActiveXObject("Microsoft.XMLHTTP");
+}
+else {
+    return; // Non supporte
+}   
+
+request.open('GET', 'ville.txt', false); // Synchro
+request.send(null);
+
+return request.responseText;
+}
 */
 /*
 var fileSystem=new ActiveXObject("Scripting.FileSystemObject");
@@ -24,8 +44,8 @@ alert(monfichier.ReadAll); // imprime: "tutorie"
 */
 
 var config = {
-    lang: 'fr',
-    //Fichier('langue.txt'),
+    lang: Fichier('langue.txt'),
+    //langue.txt,
     time: {
         timeFormat: 24,
         displaySeconds: true,
@@ -35,9 +55,9 @@ var config = {
         //change weather params here:
         //units: metric or imperial
         params: {
-	        city: 'Lille', /*variable d'affichage*/
-            country: 'France',
-            q: 'Lille, France', /*parametre de meteo*/
+	        city: Fichier('ville.txt'), /*variable d'affichage*/
+            country: Fichier('pays.txt'),
+            q: Fichier('ville.txt') + ', ' + Fichier('pays.txt'), /*parametre de meteo*/
             units: 'metric',
             // if you want a different lang for the weather that what is set above, change it here
             lang: 'fr',
@@ -49,17 +69,19 @@ var config = {
         fadeInterval: 4000,
         morning: [
             'Bonjour',
-            'Passe une bonne journée!',
+          //  'Passe une bonne journée!',
             //'As-tu bien dormi?'
         ],
         afternoon: [
-            'Tu as l\'air radieux!',
-            'Comment vas-tu?'
+            'Bonjour',
+            //'Tu as l\'air radieux!',
+            //'Comment vas-tu?'
         ],
         evening: [
-            'Wow!',
+            'Bonjour',
+            //'Wow!',
             //'Tu as l\'air en forme!',
-            'Bonsoir'
+            //'Bonsoir'
         ]
     },
     calendar: {

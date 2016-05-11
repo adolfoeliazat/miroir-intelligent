@@ -171,7 +171,6 @@ window.onload=generate_button;
 	alert(config.weather.params.country);
 	alert(config.weather.params.q);
 */
-
 </script>
 
 
@@ -231,15 +230,36 @@ window.onload=generate_button;
 			</div>
 <!--Parametres-->
 			<div class="sousmenu" id="MenuParam" onclick="afficheMenu(this)">
-				<div class="fa fa-cog"><span class="ligne espace"><a href="#">Paramètres</a></span></div>
+				<div class="fa fa-cog"><span class="ligne espace"><a href="./param.php">Paramètres</a></span></div>
 			</div>
-				<div id="sousMenuParam" style="display:none">
+				<!--div id="sousMenuParam" style="display:none">
 					<div class="ssMenu">
 						<div  class="fa fa-caret-right"><span class="ligne espace"><a href="./param.php">Modifier les paramètres</div><span class="ligne">(ouvre une nouvelle page)</a></span></span>
 					</div>
+				</div-->
+<!--recherche-->
+<!--				<div class="sousmenu" id="MenuGoogle" onclick="afficheMenu(this)">
+					<div class="fa fa-search"><span class="ligne espace"><a href="#">Recherche</a></span></div>
 				</div>
+					<div id="sousMenuGoogle" style="display:none">
+						<div class="ssMenu">
+						<span class="ligne espace"><script>
+							  (function() {
+							    var cx = '009970051627960980923:11dv60vxohc';
+							    var gcse = document.createElement('script');
+							    gcse.type = 'text/javascript';
+							    gcse.async = true;
+							    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+							    var s = document.getElementsByTagName('script')[0];
+							    s.parentNode.insertBefore(gcse, s);
+							  })();
+							</script>
+							<gcse:search></gcse:search>
+						</span>
+						</div>
+					</div>
 
-
+-->
 </div></div>
 
 
